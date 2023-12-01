@@ -15,5 +15,6 @@ This is where the value of this webapp arises. The following is the basic outlin
 Yes, ChatGPT can probably already do this, but only includes restaurants that are open up to the date of model training, which could exclude many new restaurants. And this is my own idea and implementation so it's cooler.
 
 There's many other parts to the idea that I'm not including for simplicity sake, and because I want to get this basic foundation going first.
+
 Let's see where we go 🫡
 
