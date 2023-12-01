@@ -4,7 +4,7 @@ Semantic Restaurant Chooser
 ## Gist
 A lot of restaurant apps/search engines like Yelp, Beli, and Google are good for browsing different restaurants, but only to an extent. They're good for sifting through restaurants that fit easily categorized criteria, such as cuisine, price range, location, etc. However, they lack the capability to match restaurants to the more semantic descriptions and thoughts that one usually wants to base their decision of where to eat on. 
 
-For example, I OFTEN find myself in the situation where I'm trying to think of a restaurant that would be good for a group of around 6-8 friends on a Friday night before going out, has a fun vibe, serves cheap drinks and superb food. Already, we've pretty much left the realm of helpfulness that Yelp and Google could provide without sifting through restaurants for hours. 
+For example, I OFTEN find myself in the situation where I'm trying to think of a restaurant that would be good for a group of around 6-8 friends on a Friday night before going out, has a fun vibe, plays fire music, and serves cheap drinks and superb food. Already, we've pretty much left the realm of helpfulness that Yelp and Google could provide without sifting through restaurants for hours. 
 
 This is where the value of this webapp arises. The following is the basic outline of this idea:
 - Scrape the web for restuarant reviews (from journals like infatuation, eater, conde nast, etc.)
