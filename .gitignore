@@ -1,1 +1,10 @@
 models/
+node_modules/
+.next
+**/__pycache__
+.idea
+yarn.lock
+.vscode
+api/tmp
+tmp
+**/.DS_Store

@@ -8,7 +8,7 @@ import sys
 
 MILVUS_HOST = "127.0.0.1"
 MILVUS_PORT = "19530"
-MILVUS_COLLECTION_NAME = "chompt_resto_data"
+MILVUS_COLLECTION_NAME = "'chompt_resto_data_ui'"
 
 
 def connect():
@@ -49,7 +49,7 @@ def createCollection(collection_name, overwrite=False):
         fields=[
             key,
             resto_name,
-            food_rundown,
+            # food_rundown,
             cuisine,
             perfect_for_tags,
             price_range,
