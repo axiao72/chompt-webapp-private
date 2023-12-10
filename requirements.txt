@@ -133,5 +133,6 @@ urllib3==2.1.0
     # via
     #   pinecone-client
     #   requests
+uvicorn==0.24.0
 yarl==1.9.4
     # via aiohttp
