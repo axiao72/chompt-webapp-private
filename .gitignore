@@ -8,3 +8,4 @@ yarn.lock
 api/tmp
 tmp
 **/.DS_Store
+.env
