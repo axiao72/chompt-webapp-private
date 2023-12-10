@@ -3,7 +3,6 @@ import Head from 'next/head';
 import {styled} from 'baseui';
 import {Header} from '../components/header';
 import {RestaurantsView} from '../components/restaurants-view';
-import {DocumentUploadModal} from '../components/document-upload-modal';
 import {ChatView} from '../components/chat-view';
 import {AboutModal} from '../components/about-modal';
 
