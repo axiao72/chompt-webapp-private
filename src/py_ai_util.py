@@ -17,6 +17,7 @@ import os
 from dotenv import load_dotenv
 from tqdm.auto import tqdm
 from uuid import uuid4
+import sys
 
 load_dotenv()
 
