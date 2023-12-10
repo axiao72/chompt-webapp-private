@@ -9,4 +9,3 @@ api/tmp
 tmp
 **/.DS_Store
 .env
-package-lock.json
