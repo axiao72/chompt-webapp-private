@@ -9,21 +9,17 @@
     "lint": "next lint",
     "start": "next start",
     "typecheck": "tsc --noEmit",
-    "ui": "next"
+    "ui": "next",
+    "build:digitalocean": "npm install --production=false && npm audit fix --force && npm run build && npm ci"
   },
   "dependencies": {
-    "@pinecone-database/pinecone": "1.0.1",
     "@types/node": "^18.16.1",
     "@types/react": "^18.2.0",
-    "ai": "^2.2.12",
     "baseui": "^10.9.2",
     "concurrently": "^8.2.2",
     "eslint-config-next": "^13.3.1",
     "eslint-config-prettier": "^8.8.0",
-    "langchain": "^0.0.147",
     "next": "^13.3.1",
-    "openai": "^4.7.0",
-    "openai-edge": "^1.2.2",
     "prettier": "^2.8.8",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",

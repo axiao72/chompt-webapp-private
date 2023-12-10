@@ -18,3 +18,9 @@ There's many other parts to the idea that I'm not including for simplicity sake,
 
 Let's see where we go 🫡
 
+
+## Installation
+1. Clone the repo
+2. Run npm install
+3. Run npm audit fix --force
+
