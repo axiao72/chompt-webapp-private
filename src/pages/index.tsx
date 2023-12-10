@@ -99,7 +99,7 @@ const Index = () => {
       });
       setRestoRecs(responseRestoRecs);
     }
-  }, [input, activeDocument]);
+  }, [input, restoRecs]);
 
   return (
     <Page>
@@ -107,14 +107,10 @@ const Index = () => {
         <title>Document AI</title>
       </Head>
       <AboutModal isOpen={aboutModalIsOpen} setIsOpen={setAboutModalIsOpen} />
-      <DocumentUploadModal
-        isOpen={uploadModalIsOpen}
-        setIsOpen={setUploadModalIsOpen}
-        setActiveDocument={setActiveDocument}
-      />
       <Header
         setRestoRecs={setRestoRecs}
         setAboutModalIsOpen={setAboutModalIsOpen}
+        setMessages={setMessages}
       />
       <Container>
         <RestaurantsView

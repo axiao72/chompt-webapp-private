@@ -2,7 +2,7 @@ import {LabelSmall, LabelLarge} from 'baseui/typography';
 import Upload from 'baseui/icon/upload';
 import {Button, KIND, SIZE} from 'baseui/button';
 import {styled} from 'baseui';
-import type {RestoRec} from '../pages';
+import type {RestoRec, Message} from '../pages';
 
 const Container = styled('div', ({$theme}) => ({
   padding: '8px 16px',
@@ -29,10 +29,19 @@ const TitleGroup = styled('div', {
 export const Header = ({
   setRestoRecs,
   setAboutModalIsOpen,
+  setMessages,
 }: {
   setRestoRecs: (recs: RestoRec[]) => void;
   setAboutModalIsOpen: (isOpen: boolean) => void;
+  setMessages: (messageArray: Message[]) => void;
 }) => {
+  const handleClick = () => {
+    // Reset resto recs to empty
+    setRestoRecs([]);
+    // Reset chat messages to empty
+    setMessages([]);
+  };
+
   return (
     <Container>
       <TitleGroup>
@@ -59,7 +68,7 @@ export const Header = ({
           startEnhancer={<Upload />}
           size={SIZE.compact}
           kind={KIND.secondary}
-          onClick={() => setRestoRecs([])}
+          onClick={() => handleClick()}
         >
           Reset
         </Button>
