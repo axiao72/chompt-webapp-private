@@ -12,7 +12,7 @@ WORKDIR /app
 COPY . /app
 
 # Install npm packages
-RUN npm install
+RUN npm install --force
 RUN npm audit fix --force
 
 # Install Python packages
