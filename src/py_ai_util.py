@@ -1,9 +1,9 @@
 from bs4 import BeautifulSoup
 from urllib.request import urlopen
 import json
-import requests
-import re
-import time
+# import requests
+# import re
+# import time
 import pickle
 import pinecone
 from langchain.embeddings import HuggingFaceEmbeddings
@@ -13,12 +13,12 @@ from langchain.text_splitter import CharacterTextSplitter, RecursiveCharacterTex
 from langchain.schema.document import Document
 from datetime import datetime
 import os
-from dotenv import load_dotenv
+# from dotenv import load_dotenv
 from tqdm.auto import tqdm
 from uuid import uuid4
 import sys
 
-load_dotenv()
+# load_dotenv()
 
 
 def process_infatuation_reviews(url_list: list):
