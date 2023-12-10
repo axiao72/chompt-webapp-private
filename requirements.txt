@@ -99,6 +99,7 @@ requests==2.31.0
     #   langchain-core
     #   langsmith
     #   pinecone-client
+sentence-transformers==2.2.2
 six==1.16.0
     # via python-dateutil
 sniffio==1.3.0

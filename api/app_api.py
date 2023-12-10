@@ -11,7 +11,7 @@ class IdealMeal(BaseModel):
 
 app = FastAPI()
 
-EMBED_MODEL = instantiate_embed_model("models/e5-large-v2", 'HF')
+EMBED_MODEL = instantiate_embed_model("intfloat/e5-large-v2", 'HF')
 
 @app.post("/api/chat")
 async def chat(vision: IdealMeal):
