@@ -9,3 +9,5 @@ api/tmp
 tmp
 **/.DS_Store
 .env
+requirements.in
+milvus_utils.py
