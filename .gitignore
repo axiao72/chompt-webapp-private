@@ -11,3 +11,4 @@ tmp
 .env
 requirements.in
 milvus_utils.py
+old_milvus_utils.py
