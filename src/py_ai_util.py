@@ -11,7 +11,6 @@ from langchain.embeddings.openai import OpenAIEmbeddings
 from langchain.vectorstores import Pinecone
 from langchain.text_splitter import CharacterTextSplitter, RecursiveCharacterTextSplitter
 from langchain.schema.document import Document
-import more_itertools
 from datetime import datetime
 import os
 from dotenv import load_dotenv
