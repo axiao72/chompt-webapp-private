@@ -8,8 +8,8 @@ RUN apt-get update && \
 # Set the working directory to /app
 WORKDIR /app
 
-# Copy only the necessary files for installing npm packages
-COPY package.json package-lock.json /app/
+# Copy all files to the build stage
+COPY . /app
 
 # Install npm packages
 RUN npm install --force
@@ -29,3 +29,4 @@ RUN pip install --no-cache-dir -r requirements.txt
 
 # Copy the entire application code from the build stage
 COPY --from=build /app /app
+
