@@ -16,7 +16,7 @@
 # RUN npm audit fix --force
 
 # === Final Stage ===
-FROM python:3.11
+FROM huggingface/transformers-cpu:4.9.1
 
 # Set the working directory to /app
 WORKDIR /app
