@@ -1,19 +1,19 @@
-# === Build Stage ===
-FROM python:3.11 AS build
+# # === Build Stage ===
+# FROM python:3.11 AS build
 
-# Install Node.js and npm for the build stage
-RUN apt-get update && \
-    apt-get install -y nodejs npm
+# # Install Node.js and npm for the build stage
+# RUN apt-get update && \
+#     apt-get install -y nodejs npm
 
-# Set the working directory to /app
-WORKDIR /app
+# # Set the working directory to /app
+# WORKDIR /app
 
-# Copy all files to the build stage
-COPY . /app
+# # Copy all files to the build stage
+# COPY . /app
 
-# Install npm packages
-RUN npm install --force
-RUN npm audit fix --force
+# # Install npm packages
+# RUN npm install --force
+# RUN npm audit fix --force
 
 # === Final Stage ===
 FROM python:3.11
@@ -28,5 +28,5 @@ COPY requirements.txt /app/
 RUN pip install --no-cache-dir -r requirements.txt
 
 # Copy the entire application code from the build stage
-COPY --from=build /app /app
+COPY . /app
 
