@@ -27,6 +27,8 @@ COPY requirements.txt /app/
 # Install Python packages
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Copy the entire application code from the build stage
+# Copy the entire application code
 COPY . /app
+
+RUN pip install sentence-transformers==2.2.2
 
