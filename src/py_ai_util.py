@@ -16,14 +16,15 @@ from langchain.schema.document import Document
 from langchain.prompts import PromptTemplate
 from datetime import datetime
 import os
-# from dotenv import load_dotenv
+import sys
+from dotenv import load_dotenv
 from tqdm.auto import tqdm
 from uuid import uuid4
 import sys
 from src.prompts import *
 
 
-# load_dotenv()
+load_dotenv()
 
 
 def instantiate_pinecone(api_key, environment):
@@ -171,5 +172,25 @@ def instantiate_embed_model(model_name: str, model_type: str):
                                             model_kwargs=model_kwargs,
                                             encode_kwargs=encode_kwargs)
     return embed_model
+
+
+def query_llm(query: str, review: str, resto_name: str):
+    llm = ChatOpenAI(
+        openai_api_key=os.getenv('OPENAI_API_KEY'),
+        model_name='gpt-3.5-turbo',
+        temperature=0.0
+    )
+    convince_prompt = PromptTemplate.from_template(CONVINCE_PROMPT_TEMPLATE)
+    convince_chain = LLMChain(
+        llm=llm, 
+        prompt=convince_prompt,
+    )
+    response = convince_chain({
+        'restaurant_name': resto_name, 
+        'review': review, 
+        'vision': query
+    })
+
+    return response.get('text')
 
 
