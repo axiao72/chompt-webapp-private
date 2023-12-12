@@ -10,7 +10,7 @@ aiohttp
     #   langchain-community
 aiosignal
     # via aiohttp
-annotated-types
+# annotated-types
     # via pydantic
 anyio
     # via
