@@ -27,7 +27,7 @@ from src.prompts import *
 load_dotenv()
 
 
-def instantiate_pinecone(api_key, environment):
+def initialize_pinecone(api_key, environment):
     # Initialize Pinecone
     pinecone.init(
         api_key=api_key,
@@ -144,8 +144,8 @@ def query_llm(restaurant_name: str, review: str, vision: str, openai_api_key):
         template=CONVINCE_PROMPT_TEMPLATE,
         input_variables=['restaurant_name', 'review', 'vision']
     )
-    llm_chain = LLMChain(llm=llm, prompt=convince_prompt)
-    response = llm_chain(
+    convince_chain = LLMChain(llm=llm, prompt=convince_prompt)
+    response = convince_chain(
         {
             "restaurant_name": restaurant_name,
             "review": review,
@@ -172,25 +172,5 @@ def instantiate_embed_model(model_name: str, model_type: str):
                                             model_kwargs=model_kwargs,
                                             encode_kwargs=encode_kwargs)
     return embed_model
-
-
-def query_llm(query: str, review: str, resto_name: str):
-    llm = ChatOpenAI(
-        openai_api_key=os.getenv('OPENAI_API_KEY'),
-        model_name='gpt-3.5-turbo',
-        temperature=0.0
-    )
-    convince_prompt = PromptTemplate.from_template(CONVINCE_PROMPT_TEMPLATE)
-    convince_chain = LLMChain(
-        llm=llm, 
-        prompt=convince_prompt,
-    )
-    response = convince_chain({
-        'restaurant_name': resto_name, 
-        'review': review, 
-        'vision': query
-    })
-
-    return response.get('text')
 
 

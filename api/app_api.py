@@ -16,7 +16,7 @@ load_dotenv()
 EMBED_MODEL = instantiate_embed_model("intfloat/e5-large-v2", 'HF')
 
 # Instantiate Pinecone vector db
-instantiate_pinecone(api_key=os.getenv('PINECONE_API_KEY'), environment=os.getenv('PINECONE_ENVIRONMENT'))
+initialize_pinecone(api_key=os.getenv('PINECONE_API_KEY'), environment=os.getenv('PINECONE_ENVIRONMENT'))
 # Store restaurant reviews in Pinecone
 # store_reviews(filename='data/reviews.pkl', embed_model=EMBED_MODEL, index_name=os.getenv('PINECONE_INDEX_NAME'))
 
