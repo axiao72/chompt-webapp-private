@@ -26,7 +26,7 @@ async def chat(vision: IdealMeal):
     # vision_dict = vision.model_dump()
     print(f"Getting recommendations.... loading..... ", file=sys.stderr)
     # Get recommendations from Pinecone
-    resto_recs = get_top_restos(vision.description, embed_model=EMBED_MODEL, index_name=os.getenv('PINECONE_INDEX_NAME'))
+    resto_recs = get_top_restos(query=vision.description, embed_model=EMBED_MODEL, index_name=os.getenv('PINECONE_INDEX_NAME'))
     print(f"Broncos Country... Let's Ride!!!", file=sys.stderr)
     restos_list = []
     for resto in resto_recs:
@@ -42,8 +42,10 @@ async def chat(vision: IdealMeal):
             'price_range': price_range,
             'image_url': image_url,
         })
-
+    top_rec = restos_list[0]
+    pitch = query_llm(restaurant_name=top_rec['resto_name'], review=top_rec['review'], vision=vision.description, openai_api_key=os.getenv('OPENAI_API_KEY'))
+    
     return {
         'restos': restos_list,
-        'result': ''
+        'pitch': pitch
     }

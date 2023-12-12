@@ -8,15 +8,20 @@ import pickle
 import pinecone
 from langchain.embeddings import HuggingFaceEmbeddings
 from langchain.embeddings.openai import OpenAIEmbeddings
+from langchain.chat_models import ChatOpenAI
+from langchain.chains.llm import LLMChain
 from langchain.vectorstores import Pinecone
 from langchain.text_splitter import CharacterTextSplitter, RecursiveCharacterTextSplitter
 from langchain.schema.document import Document
+from langchain.prompts import PromptTemplate
 from datetime import datetime
 import os
 # from dotenv import load_dotenv
 from tqdm.auto import tqdm
 from uuid import uuid4
 import sys
+from src.prompts import *
+
 
 # load_dotenv()
 
@@ -126,6 +131,28 @@ def get_top_restos(query: str, embed_model: HuggingFaceEmbeddings, index_name):
     top_restos = vector_store.similarity_search(query, k=4)
     print("Found the top 4 restaurants!! Watch out... their spppiiiicccyyyyyyy...", file=sys.stderr)
     return top_restos
+
+
+def query_llm(restaurant_name: str, review: str, vision: str, openai_api_key):
+    llm = ChatOpenAI(
+        openai_api_key=openai_api_key,
+        model_name='gpt-3.5-turbo',
+        temperature=0.0
+    )
+    convince_prompt = PromptTemplate(
+        template=CONVINCE_PROMPT_TEMPLATE,
+        input_variables=['restaurant_name', 'review', 'vision']
+    )
+    llm_chain = LLMChain(llm=llm, prompt=convince_prompt)
+    response = llm_chain(
+        {
+            "restaurant_name": restaurant_name,
+            "review": review,
+            "vision": vision,
+        },
+        return_only_outputs=True
+    )
+    return response.get('text')
 
 
 def instantiate_embed_model(model_name: str, model_type: str):

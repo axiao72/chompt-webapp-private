@@ -81,10 +81,6 @@ const Index = () => {
     const responseJson = await response.json();
     const responseRestos = responseJson.restos;
 
-    setMessages((prev) => [
-      ...prev.slice(0, prev.length - 1),
-      {role: 'assistant', content: responseJson.result},
-    ]);
     if (responseRestos.length > 0) {
       const responseRestoRecs: RestoRec[] = responseRestos.map((resto) => {
         const restoRec: RestoRec = {
@@ -98,6 +94,10 @@ const Index = () => {
       });
       setRestoRecs(responseRestoRecs);
     }
+    setMessages((prev) => [
+      ...prev.slice(0, prev.length - 1),
+      {role: 'assistant', content: responseJson.pitch},
+    ]);
   }, [input, restoRecs]);
 
   return (
