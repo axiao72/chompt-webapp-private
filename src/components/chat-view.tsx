@@ -54,7 +54,7 @@ const Message = ({
       })}
     >
       <ParagraphSmall margin="0" color={theme.colors.contentTertiary}>
-        {role === 'user' ? 'User:' : 'Document AI:'}
+        {role === 'user' ? 'Me:' : 'Mr. Unlimited:'}
       </ParagraphSmall>
       {isLoading ? (
         <Skeleton width="300px" height="20px" animation />

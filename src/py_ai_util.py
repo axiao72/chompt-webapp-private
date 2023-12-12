@@ -21,123 +21,16 @@ import sys
 # load_dotenv()
 
 
-def process_infatuation_reviews(url_list: list):
-    resto_reviews = {}
-    url_prefix = "https://www.theinfatuation.com"
-    for count, url in enumerate(list):
-        review_page = urlopen(f"https://www.theinfatuation.com{url}")
-        html = review_page.read().decode("utf-8")
-        soup = BeautifulSoup(html, "html.parser")
-
-        # Get review dictionary from Soup
-        review_dict = json.loads(soup.script.string)
-        
-        # Get resto name
-        resto_name = review_dict['itemReviewed']['name']
-        
-        # Entire review body, split into list containing normal review and food rundown section
-        review_body = review_dict['reviewBody']
-        review_split = review_body.split('Food Rundown')
-        
-        # Just review
-        just_review = review_split[0]
-        
-        # Food Rundown
-        if len(review_split) > 1:
-            food_rundown = review_split[1]
-        else:
-            food_rundown = ''
-
-        # Review price
-        review_price = review_dict['itemReviewed']['priceRange']
-        
-        # Key words
-        review_tags = review_dict['itemReviewed']['keywords']
-        
-        # Cuisine
-        review_cuisine = review_dict['itemReviewed']['servesCuisine']
-        
-        # Date of Review
-        review_date = review_dict['dateModified']
-
-        # Image of Restaurant 
-        resto_image_url = review_dict['itemReviewed']['image']
-        
-        resto_reviews[resto_name] = {
-                                    'review': just_review,
-                                    'food_rundown': food_rundown,
-                                    'cuisine': review_cuisine,
-                                    'perfect_for_tags': review_tags,
-                                    'price_range': review_price,
-                                    'review_date': review_date,
-                                    'resto_image': resto_image_url,
-                                    }
-        
-        print(f"Got review for {resto_name}! Parsed {count + 1} restaurants so far.", file=sys.stderr)
-    
-    return resto_reviews
+def instantiate_pinecone(api_key, environment):
+    # Initialize Pinecone
+    pinecone.init(
+        api_key=api_key,
+        environment=environment,
+    )
 
 
-def scrape_infatuation_reviews(pages: int, output_file: str):
-    review_urls = []
-    # Get review urls from each Infaution review page, up to the specified number of review pages
-    for i in range(1, pages+1):
-        url = f"https://www.theinfatuation.com/new-york/reviews?page={i}"
-        page = urlopen(url)
-        html = page.read().decode("utf-8")
-        soup = BeautifulSoup(html, "html.parser")
-        review_urls += [link['href'] for link in soup.html.select('a') if "/reviews/" in link['href']]
-    print(f"Number of review URLS: {len(review_urls)}", file=sys.stderr)
-
-    # Process each review from the list of review URLs
-    resto_reviews = process_infatuation_reviews(review_urls)
-    
-    # Write infatuation restaurant reviews to pkl file
-    with open(output_file, 'wb') as file:
-        pickle.dump(resto_reviews, file, protocol=pickle.HIGHEST_PROTOCOL)
-
-
-# For Milvus, prob won't use
-def split_infatuation_reviews(file_name: str):
-    with open(file_name, 'rb') as file:
-        resto_reviews = pickle.load(file)
-
-    text_splitter = RecursiveCharacterTextSplitter(chunk_size=2500,
-                                     chunk_overlap=800,
-                                     length_function=len)
-    final_docs = []
-    total_word_cnt = 0
-    for resto in resto_reviews:
-        cleaned_review = resto_reviews[resto]['review'].replace('&apos;', "'").replace("&amp;", "&")
-        # Split review text into chunks
-        split_review_docs = text_splitter.create_documents([cleaned_review])
-        # Loop through each chunk and assign metadata
-        for doc in split_review_docs:
-            doc.metadata['resto_name'] = resto.replace("&amp;", "&").replace('&apos;', "'")
-            # doc.metadata['food_rundown'] = resto_reviews[resto]['food_rundown'].replace("&amp;", "&").replace('&apos;', "'")
-            doc.metadata['cuisine'] = resto_reviews[resto]['cuisine']
-            doc.metadata['perfect_for_tags'] = resto_reviews[resto]['perfect_for_tags'].replace("&amp;", "&").replace('&apos;', "'")
-            doc.metadata['price_range'] = resto_reviews[resto]['price_range']
-            doc.metadata['review_date'] = resto_reviews[resto]['review_date'].split('T')[0]
-            # Add document to final list of documents
-            final_docs.append(doc)
-            total_word_cnt += len(doc.page_content.split())
-
-    print(f'Final total of {len(final_docs)} documents from {len(resto_reviews)} reviews.', file=sys.stderr)
-    print(f'Average word of count of each document: {total_word_cnt/len(final_docs)}\n', file=sys.stderr)
-
-    return final_docs
-
-
-def store_infatuation_reviews(filename: str, embed_model: HuggingFaceEmbeddings):
+def store_reviews(filename: str, embed_model: HuggingFaceEmbeddings, index_name):
     try:
-        # Initialize Pinecone
-        pinecone.init(
-            api_key=os.getenv('PINECONE_API_KEY'),
-            environment=os.getenv('PINECONE_ENVIRONMENT'),
-        )
-        # Get chompt pinecome index name
-        index_name = os.getenv('PINECONE_INDEX_NAME')
         # If pinecone index already exists, delete and create new. 
         # Only using this function if want to create a new, updated index
         if index_name in pinecone.list_indexes():
@@ -150,7 +43,7 @@ def store_infatuation_reviews(filename: str, embed_model: HuggingFaceEmbeddings)
         # Get Pinecone index
         index = pinecone.Index(index_name)
         # Get reviews from file
-        with open('infatuation_reviews_v3.pkl', 'rb') as file:
+        with open(filename, 'rb') as file:
             resto_reviews = pickle.load(file)
 
         text_splitter = RecursiveCharacterTextSplitter(chunk_size=2500,
@@ -212,13 +105,13 @@ def store_infatuation_reviews(filename: str, embed_model: HuggingFaceEmbeddings)
                 upsert_chunks = []
                 upsert_metadatas = []
 
-        # If they are any left over chunks, upsert them
+        # If there are any left over chunks, upsert them
         if upsert_chunks:
             print("Upserting left over dangerwiches...", file=sys.stderr)
             ids = [str(uuid4()) for _ in range(len(upsert_chunks))]
             embeddings = embed_model.embed_documents(upsert_chunks)
             index.upsert(vectors=zip(ids, embeddings, upsert_metadatas))
-        print("Finished upserting all dangerwiches... BRONCOS COUNTRY. LET'S RIDE!!!", file=sys.stderr)
+        print("Finished upserting all dangerwiches... Broncos Country. Let's Ride.", file=sys.stderr)
         end_time = datetime.now()
         print(f"End time: {end_time}", file=sys.stderr)
         print(f"Total elapsed time: {end_time - start_time}", file=sys.stderr)
@@ -226,8 +119,7 @@ def store_infatuation_reviews(filename: str, embed_model: HuggingFaceEmbeddings)
         print(f"Exception occured while storing infatuation reviews in Pinecone: {e}", file=sys.stderr)
 
 
-def get_top_restos(query: str, embed_model: HuggingFaceEmbeddings):
-    index_name = os.getenv('PINECONE_INDEX_NAME')
+def get_top_restos(query: str, embed_model: HuggingFaceEmbeddings, index_name):
     vector_store = Pinecone.from_existing_index(index_name, embed_model)
     # Restos are returned as Langchain Documents, containing appropriate metadata and reviews
     print(f"Searching vector database..." , file=sys.stderr)

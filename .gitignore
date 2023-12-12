@@ -14,3 +14,5 @@ milvus_utils.py
 old_milvus_utils.py
 .zshrc
 requirements_2.in
+notebooks
+old_functions.py

@@ -8,102 +8,103 @@ aiohttp
     # via
     #   langchain
     #   langchain-community
-aiosignal==1.3.1
+aiosignal
     # via aiohttp
-annotated-types==0.6.0
+annotated-types
     # via pydantic
-anyio==3.7.1
+anyio
     # via
     #   fastapi
     #   langchain-core
     #   starlette
-attrs==23.1.0
+attrs
     # via aiohttp
-beautifulsoup4==4.12.2
+beautifulsoup4
     # via bs4
-bs4==0.0.1
+bs4
     # via -r requirements.in
-certifi==2023.11.17
+certifi
     # via requests
-charset-normalizer==3.3.2
+charset-normalizer
     # via requests
-dataclasses-json==0.6.3
+dataclasses-json
     # via
     #   langchain
     #   langchain-community
-dnspython==2.4.2
+dotenv
+dnspython
     # via pinecone-client
-fastapi==0.104.1
+fastapi
     # via -r requirements.in
-frozenlist==1.4.0
+frozenlist
     # via
     #   aiohttp
     #   aiosignal
-greenlet==3.0.2
+greenlet
     # via sqlalchemy
-idna==3.6
+idna
     # via
     #   anyio
     #   requests
     #   yarl
-jsonpatch==1.33
+jsonpatch
     # via
     #   langchain
     #   langchain-core
-jsonpointer==2.4
+jsonpointer
     # via jsonpatch
-langchain==0.0.349
+langchain
     # via -r requirements.in
-langchain-community==0.0.1
+langchain-community
     # via langchain
-langchain-core==0.0.13
+langchain-core
     # via
     #   langchain
     #   langchain-community
-langsmith==0.0.69
+langsmith
     # via
     #   langchain
     #   langchain-community
     #   langchain-core
-loguru==0.7.2
+loguru
     # via pinecone-client
-marshmallow==3.20.1
+marshmallow
     # via dataclasses-json
-multidict==6.0.4
+multidict
     # via
     #   aiohttp
     #   yarl
-mypy-extensions==1.0.0
+mypy-extensions
     # via typing-inspect
-numpy==1.26.2
+numpy
     # via
     #   langchain
     #   langchain-community
     #   pinecone-client
-packaging==23.2
+packaging
     # via
     #   langchain-core
     #   marshmallow
-pinecone-client==2.2.4
+pinecone-client
     # via -r requirements.in
-pydantic==2.5.2
+pydantic
     # via
     #   -r requirements.in
     #   fastapi
     #   langchain
     #   langchain-core
     #   langsmith
-pydantic-core==2.14.5
+pydantic-core
     # via pydantic
-python-dateutil==2.8.2
+python-dateutil
     # via pinecone-client
-pyyaml==6.0.1
+pyyaml
     # via
     #   langchain
     #   langchain-community
     #   langchain-core
     #   pinecone-client
-requests==2.31.0
+requests
     # via
     #   -r requirements.in
     #   langchain
@@ -111,30 +112,30 @@ requests==2.31.0
     #   langchain-core
     #   langsmith
     #   pinecone-client
-six==1.16.0
+six
     # via python-dateutil
-sniffio==1.3.0
+sniffio
     # via anyio
-soupsieve==2.5
+soupsieve
     # via beautifulsoup4
-sqlalchemy==2.0.23
+sqlalchemy
     # via
     #   langchain
     #   langchain-community
-starlette==0.27.0
+starlette
     # via fastapi
-tenacity==8.2.3
+tenacity
     # via
     #   langchain
     #   langchain-community
     #   langchain-core
-tqdm==4.66.1
+tqdm
     # via
     #   -r requirements.in
     #   pinecone-client
-typing==3.7.4.3
+typing
     # via -r requirements.in
-typing-extensions==4.9.0
+typing-extensions
     # via
     #   fastapi
     #   pinecone-client
@@ -142,11 +143,11 @@ typing-extensions==4.9.0
     #   pydantic-core
     #   sqlalchemy
     #   typing-inspect
-typing-inspect==0.9.0
+typing-inspect
     # via dataclasses-json
-urllib3==2.1.0
+urllib3
     # via
     #   pinecone-client
     #   requests
-yarl==1.9.4
+yarl
     # via aiohttp
