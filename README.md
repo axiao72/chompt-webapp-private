@@ -1,5 +1,5 @@
 # CHOMPT
-Semantic Restaurant Chooser
+Full-stack Semantic Restaurant Chooser
 
 ## Gist
 A lot of restaurant apps/search engines like Yelp, Beli, and Google are good for browsing different restaurants, but only to an extent. They're good for sifting through restaurants that fit easily categorized criteria, such as cuisine, price range, location, etc. However, they lack the capability to match restaurants to the more semantic descriptions and thoughts that one usually wants to base their decision of where to eat on. 
@@ -18,6 +18,8 @@ There's many other parts to the idea that I'm not including for simplicity sake,
 
 Let's see where we go 🫡
 
+## Heads Up
+This is an ongoing project so it's VERY barebones, but will be improving every day! For example, one major thing you'll probably notice is that restaurants are repeated in recommendations. Do not fret! I'm using a miniscule set of data (only about 250 restaurants) so that will improve when I gather more data. A lot of things are just placeholders while I figure out everything else. Thanks for your understanding, I promise it'll be worth it.
 
 ## Getting Started!
 ### Installation
