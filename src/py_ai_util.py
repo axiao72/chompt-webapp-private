@@ -17,14 +17,14 @@ from langchain.prompts import PromptTemplate
 from datetime import datetime
 import os
 import sys
-from dotenv import load_dotenv
+# from dotenv import load_dotenv
 from tqdm.auto import tqdm
 from uuid import uuid4
 import sys
 from src.prompts import *
 
 
-load_dotenv()
+# load_dotenv()
 
 
 def initialize_pinecone(api_key, environment):

@@ -103,7 +103,7 @@ const Index = () => {
   return (
     <Page>
       <Head>
-        <title>Document AI</title>
+        <title>CHOMPT</title>
       </Head>
       <AboutModal isOpen={aboutModalIsOpen} setIsOpen={setAboutModalIsOpen} />
       <Header
