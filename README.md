@@ -21,7 +21,7 @@ Let's see where we go 🫡
 ## Heads Up
 This is an ongoing project so it's VERY barebones, but will be improving every day! For example, one major thing you'll probably notice is that restaurants are repeated in recommendations. Do not fret! I'm using a miniscule set of data (only about 250 restaurants) so that will improve when I gather more data. A lot of things are just placeholders while I figure out everything else. Thanks for your understanding, I promise it'll be worth it.
 
-## Getting Started!
+## Getting Started! (As this repo is changing daily, these instructions will most likely be outdated. Live URL to access the application directly: https://seashell-app-tdlgj.ondigitalocean.app/)
 ### Installation
 1. Clone the repo
 2. Create a fresh virtual environment (conda or whatever Python venv you want to use)
