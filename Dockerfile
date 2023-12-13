@@ -3,7 +3,7 @@ FROM python:3.11 as build
 
 # Install Node.js and npm for the build stage
 RUN apt-get update && \
-    apt-get install -y nodejs npm
+    apt-get install -y nodejs npm vim
 
 # Set the working directory to /app
 WORKDIR /app

@@ -52,7 +52,7 @@ export const Header = ({
           |
         </LabelLarge>
         <LabelSmall>
-          An AI restaurant choooser
+          An AI restaurant chooser
         </LabelSmall>
       </TitleGroup>
       <Group>
@@ -65,7 +65,7 @@ export const Header = ({
         </Button>
 
         <Button
-          startEnhancer={<Upload />}
+          // startEnhancer={<Upload />}
           size={SIZE.compact}
           kind={KIND.secondary}
           onClick={() => handleClick()}

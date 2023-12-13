@@ -38,8 +38,8 @@ const EmptyState = () => {
       }}
     >
       <ParagraphSmall color={theme.colors.contentTertiary}>
-        To get started, click the &quot;Upload Document&quot; button in the top
-        right.
+        To get started, click the &quot;About&quot; button in the top
+        right! You'll get a quick rundown there.
       </ParagraphSmall>
     </Container>
   );
@@ -53,6 +53,10 @@ export const RestaurantsView = ({
   const [, theme] = useStyletron();
   
   const containerRef = useRef();
+
+  if (restoRecs.length === 0) {
+    return <EmptyState />;
+  }
 
   return (
     <Container ref={containerRef}>
