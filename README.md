@@ -8,7 +8,7 @@ For example, I OFTEN find myself in the situation where I'm trying to think of a
 
 This is where this webapp steps in. The following is the basic outline of this idea:
 - Scrape the web for restuarant reviews (from journals like infatuation, eater, conde nast, etc.)
-- Convert these reviews into embeddings and store them in a vector database (Milvus) with various metadata (restaurant name, price range, perfect-for tags, etc). Now, we have a rich database of detailed, professional reviews from my personal favorite journals (that I heavily trust and rely on on a daily basis anyway) that we can search for restaurants on.
+- Convert these reviews into embeddings and store them in a vector database (Pinecone) with various metadata (restaurant name, price range, perfect-for tags, etc). Now, we have a rich database of detailed, professional reviews from my personal favorite journals (that I heavily trust and rely on on a daily basis anyway) that we can search for restaurants on.
 - Ask the user to literally describe what they envision for their dinner (could expand to night out and include bars), take their description, and do a similarity search on the embeddings we have in our vector db. We can also set filters on our search using the metadata if the user provides any categorical criteria they'd like to apply.
 - Return 4 restaurants. This also eliminates the possibility of going down the rabbit hole of potential restaurants to choose from, which I do almost weekly on Yelp, Beli, etc. 
 

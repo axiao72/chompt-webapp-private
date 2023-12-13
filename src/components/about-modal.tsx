@@ -23,8 +23,8 @@ export const AboutModal = ({
           or honestly whatever you want to type in, and returns 4 restaurants you
           should go to without a doubt (no more scrolling through Yelp, Google,
           Beli, or whatever app you use to decide where to eat for hours on hours). 
-          All of the grunt work is taken care of for you, it just involves a little
-          <i>truss</i> 😉 Don't worry, you're in good hands; the recommendations are 
+          All of the grunt work is taken care of for you, it just involves a little 
+          <i> truss</i> 😉 Don't worry, you're in good hands; the recommendations are 
           derived from professional reviews of the best restaurants in NYC. 
           Like Mr. Unlimited says himself - Broncos Country, Let's Ride.
         </ParagraphMedium>

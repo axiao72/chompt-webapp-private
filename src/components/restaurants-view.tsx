@@ -38,8 +38,8 @@ const EmptyState = () => {
       }}
     >
       <ParagraphSmall color={theme.colors.contentTertiary}>
-        To get started, click the &quot;About&quot; button in the top
-        right! You'll get a quick rundown there.
+        To get a quick rundown, click the &quot;About&quot; button in the top
+        right!
       </ParagraphSmall>
     </Container>
   );
@@ -51,8 +51,17 @@ export const RestaurantsView = ({
   restoRecs: Array<RestoRec>;
 }) => {
   const [, theme] = useStyletron();
-  
   const containerRef = useRef();
+
+  useEffect(() => {
+    if (restoRecs.length >= 1) {
+      (containerRef.current as HTMLDivElement).scrollTo({
+        //Add some padding to the scroll
+        top: NAV_HEIGHT - 8,
+        behavior: 'smooth',
+      });
+    }
+  }, [restoRecs]);
 
   if (restoRecs.length === 0) {
     return <EmptyState />;
