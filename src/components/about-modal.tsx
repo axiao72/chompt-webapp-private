@@ -30,7 +30,7 @@ export const AboutModal = ({
         </ParagraphMedium>
         <ParagraphMedium color={theme.colors.contentSecondary}>
           To get started, type in as detailed of a meal description as you'd like 
-          and you will receive your 4 recommendations on the left hand side of the 
+          and you will receive your 3 recommendations on the left hand side of the 
           screen. 
         </ParagraphMedium>
         <ParagraphMedium color={theme.colors.contentSecondary}>
