@@ -10,7 +10,7 @@ This is where this webapp steps in. The following is the basic outline of this i
 - Scrape the web for restuarant reviews (from journals like infatuation, eater, conde nast, etc.)
 - Convert these reviews into embeddings and store them in a vector database (Pinecone) with various metadata (restaurant name, price range, perfect-for tags, etc). Now, we have a rich database of detailed, professional reviews from my personal favorite journals (that I heavily trust and rely on on a daily basis anyway) that we can search for restaurants on.
 - Ask the user to literally describe what they envision for their dinner (could expand to night out and include bars), take their description, and do a similarity search on the embeddings we have in our vector db. We can also set filters on our search using the metadata if the user provides any categorical criteria they'd like to apply.
-- Return 4 restaurants. This also eliminates the possibility of going down the rabbit hole of potential restaurants to choose from, which I do almost weekly on Yelp, Beli, etc. 
+- Return 3 restaurants. This also eliminates the possibility of going down the rabbit hole of potential restaurants to choose from, which I do almost weekly on Yelp, Beli, etc. 
 
 Yes, ChatGPT can probably already do this, but only includes restaurants that are open up to the date of model training, which could exclude many new restaurants. And this is my own idea and implementation so it's cooler.
 
