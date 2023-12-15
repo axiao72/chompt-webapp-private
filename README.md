@@ -19,6 +19,5 @@ There's many other parts to the idea that I'm not including for simplicity sake,
 Let's see where we go 🫡
 
 ## Heads Up
-This is an ongoing project so it's VERY barebones, but will be improving every day! For example, one major thing you'll probably notice is that restaurants are repeated in recommendations. Do not fret! I'm using a miniscule set of data (only about 250 restaurants) so that will improve when I gather more data. A lot of things are just placeholders while I figure out everything else. Thanks for your understanding, I promise it'll be worth it.
-
-## Now that I have a live URL, I'm moving the codebase to a private repo. You can access the application directly at: https://seashell-app-tdlgj.ondigitalocean.app/ 😁 If you would like to talk about the code, please reach out!! Would love to talk shop. Enjoy!
+Now that I have this application deployed with a live URL, I'm moving the codebase to a private repo. You can access the application directly at: https://seashell-app-tdlgj.ondigitalocean.app/ 😁 If you would like to talk about the code, don't hesitate to reach out!! (axiao72@gmail.com) Would love to talk shop. Enjoy!
+Also, this is an ongoing project so it's VERY barebones, but will be improving every day! For example, one major thing you'll probably notice is that restaurants are repeated in recommendations. Do not fret! I'm using a miniscule set of data (only about 250 restaurants) so that will improve when I gather more data. A lot of things are just placeholders while I figure out everything else. Thanks for your understanding, I promise it'll be worth it.
