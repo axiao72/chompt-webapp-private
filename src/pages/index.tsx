@@ -37,6 +37,8 @@ export type RestoRec = {
   perfectFor: string;
   priceRange: string;
   imageUrl ? : string;
+  websiteUrl : string;
+  nbrhood : string;
 }
 
 export type Document = {

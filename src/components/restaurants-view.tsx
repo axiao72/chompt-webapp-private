@@ -87,7 +87,10 @@ export const RestaurantsView = ({
             key={`resto-${index}`}
           >
             <StyledBody>
-                {resto.review} | {resto.priceRange}
+                {resto.review}
+            </StyledBody>
+            <StyledBody>
+                {resto.nbrhood} | {resto.priceRange}
             </StyledBody>
             <StyledAction>
                 <Button overrides={{BaseButton: {style: {width: '100%'}}}}>
