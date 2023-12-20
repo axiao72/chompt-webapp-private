@@ -1,7 +1,7 @@
 # CHOMPT
 Full-stack Semantic Restaurant Chooser
 
-## Application is LIVE at [chompt.io](chompt.io) 🥳
+## Application is LIVE at [chompt.io](chompt.io)! 🥳
 Please read below to get some background before getting started! It'll clear up some questions and give you an idea of my motivation behind this app 🤝
 
 ## Gist
