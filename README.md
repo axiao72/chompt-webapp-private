@@ -13,6 +13,7 @@ This is where this webapp steps in.
 - As the user, you enter a vision of a restaurant, meal, night out, etc. and can be as descriptive as your heart desires.
 - 3 restaurants are returned that you should go to without a doubt. No more scrolling through Yelp, Google, Beli, or whatever app you use to decide where to eat for hours on hours. All of the grunt work is taken care of for you, it just involves a little *truss* 😉
 - Don't worry, you're in good hands; the recommendations are derived from professional reviews of the best restaurants in NYC.
+
 Like Mr. Unlimited says himself - Broncos Country, Let's Ride.
 
 There's many other parts to the idea that I'm not including for simplicity sake, and because I want to get this basic foundation going first.
