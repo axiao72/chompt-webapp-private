@@ -26,7 +26,7 @@ Now that I have this application deployed with a live URL, I'm moving the codeba
 
 Also, this is an ongoing project so it's VERY barebones, but will be improving every day! For example, one major thing you'll probably notice is that restaurants are repeated in recommendations. Do not fret! I'm using a miniscule set of data (only about 250 restaurants) so that will improve when I gather more data. A lot of things are just placeholders while I figure out everything else. Thanks for your understanding, I promise it'll be worth it.
 
-Some notable disclaimers:
+## Some notable disclaimers
 - In the overall scheme of NYC restaurants, the pool of restaurants in my database is pretty small. Keep that in mind while using the app,
 and I'll be working on getting more and more restaurants!
 - The "Book Reservation" button will go directly to the restaurant's Resy page IF available. I currently only have a small 
