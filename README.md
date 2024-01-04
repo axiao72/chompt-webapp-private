@@ -9,8 +9,11 @@ A lot of restaurant apps/search engines like Yelp, Beli, and Google are good for
 
 For example, I OFTEN find myself in the situation where I'm trying to think of a restaurant that would be good for a group of around 6-8 friends on a Friday night before going out, has a fun vibe, plays fire music, and serves cheap drinks and superb food. Already, we've pretty much left the realm of helpfulness that Yelp and Google could provide without sifting through restaurants for hours. 
 
-This is where this webapp steps in. This application takes in a description of a restaurant, meal, night out, or honestly whatever you want to type in, and returns 3 restaurants you
-should go to without a doubt (no more scrolling through Yelp, Google, Beli, or whatever app you use to decide where to eat for hours on hours). All of the grunt work is taken care of for you, it just involves a little *truss* 😉 Don't worry, you're in good hands; the recommendations are derived from professional reviews of the best restaurants in NYC. Like Mr. Unlimited says himself - Broncos Country, Let's Ride. Return 3 restaurants. This also eliminates the possibility of going down the rabbit hole of potential restaurants to choose from, which I do almost weekly on Yelp, Beli, etc. 
+This is where this webapp steps in. 
+- As the user, you enter a vision of a restaurant, meal, night out, etc. and can be as descriptive as your heart desires.
+- 3 restaurants are returned that you should go to without a doubt. No more scrolling through Yelp, Google, Beli, or whatever app you use to decide where to eat for hours on hours. All of the grunt work is taken care of for you, it just involves a little *truss* 😉
+- Don't worry, you're in good hands; the recommendations are derived from professional reviews of the best restaurants in NYC.
+Like Mr. Unlimited says himself - Broncos Country, Let's Ride.
 
 There's many other parts to the idea that I'm not including for simplicity sake, and because I want to get this basic foundation going first.
 
